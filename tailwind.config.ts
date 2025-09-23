@@ -47,6 +47,17 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Custom burgundy & brown palette
+        burgundy: {
+          light: "hsl(var(--burgundy-light))",
+          DEFAULT: "hsl(var(--primary))",
+          dark: "hsl(var(--burgundy-dark))",
+        },
+        brown: {
+          warm: "hsl(var(--brown-warm))",
+          light: "hsl(var(--brown-light))",
+        },
+        gold: "hsl(var(--gold-accent))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -57,6 +68,15 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      backgroundImage: {
+        "gradient-primary": "var(--gradient-primary)",
+        "gradient-warm": "var(--gradient-warm)",
+        "gradient-hero": "var(--gradient-hero)",
+      },
+      boxShadow: {
+        "burgundy": "var(--shadow-burgundy)",
+        "warm": "var(--shadow-warm)",
       },
       borderRadius: {
         lg: "var(--radius)",
