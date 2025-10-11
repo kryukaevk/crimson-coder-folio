@@ -1,54 +1,76 @@
-import { useState } from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import { PortfolioModal, PortfolioProject } from "./portfolio-modal"
-import projectEcommerce from "@/assets/project-ecommerce.jpg"
-import projectWeather from "@/assets/project-weather.jpg"
-import projectTaskManager from "@/assets/project-taskmanager.jpg"
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { PortfolioModal, PortfolioProject } from "./portfolio-modal";
+import shoesApp from "@/assets/shoes_app.png";
+import wheatherApp from "@/assets/wheather_app.png";
+import shawarmaApp from "@/assets/shawarma_app.png";
 
 const projects: PortfolioProject[] = [
   {
     id: "ecommerce",
     title: "Интернет-магазин",
-    description: "Современный e-commerce сайт с корзиной и системой оплаты",
-    fullDescription: "Полнофункциональный интернет-магазин, построенный на React с использованием TypeScript. Включает каталог товаров, корзину покупок, систему фильтрации и поиска, адаптивный дизайн. Реализована интеграция с платежными системами и административная панель для управления товарами.",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "React Router", "Context API", "Local Storage"],
-    image: projectEcommerce,
-    githubUrl: "https://github.com/kryukaevk",
-    liveUrl: "https://example-ecommerce.com"
+    description: "E-commerce сайт с корзиной и системой оплаты",
+    fullDescription:
+      "Полнофункциональный интернет-магазин, построенный на React. Включает каталог товаров, корзину покупок, систему фильтрации и поиска, адаптивный дизайн. Реализована авторизация и регистрация пользователей, а также личный кабинет для просмотра заказов и управления профилем. Административная панель предоставляет инструменты для управления товарами (добавление, изменение, удаление) и пользователями (просмотр списка, редактирование ролей).",
+    technologies: [
+      "React",
+      "JavaScript",
+      "StyledComponent",
+      "Redux",
+      "React Router",
+      "Local Storage",
+      "Node.js",
+      "MongoDB",
+      "Docker",
+    ],
+    image: shoesApp,
+    githubUrl: "https://github.com/kryukaevk/shoes_app",
   },
   {
-    id: "weather",
-    title: "Погодное приложение",
-    description: "Приложение для отслеживания погоды с красивыми анимациями",
-    fullDescription: "Современное погодное приложение с интуитивным интерфейсом. Показывает текущую погоду, прогноз на несколько дней, интерактивные графики и анимации. Поддерживает геолокацию и поиск по городам. Адаптивный дизайн работает на всех устройствах.",
-    technologies: ["React", "JavaScript", "CSS3", "Weather API", "Chart.js", "Geolocation API"],
-    image: projectWeather,
-    githubUrl: "https://github.com/kryukaevk"
+    id: "sound",
+    title: "Музыкальное приложение",
+    description: "Приложение для прослушивания звуков природы",
+    fullDescription:
+      "Интерактивное веб-приложение для прослушивания звуков природы. Пользователь видит динамически генерируемый список карточек с иконками погоды, настраиваемым фоном и слайдером для регулировки громкости. Приложение использует модульную структуру для рендеринга элементов, с поддержкой TypeScript для типизации данных и Webpack для сборки.",
+    technologies: ["TypeScript", "Webpack", "SCSS"],
+    image: wheatherApp,
+    githubUrl: "https://github.com/kryukaevk/wheather_app",
+    liveUrl: "https://kryukaevk.github.io/wheather_app/",
   },
   {
-    id: "taskmanager",
-    title: "Менеджер задач",
-    description: "Канбан-доска для управления проектами и задачами",
-    fullDescription: "Продвинутый менеджер задач с функциональностью канбан-доски. Поддерживает создание проектов, добавление задач, drag-and-drop перемещение между колонками, установку приоритетов и дедлайнов. Реализована система уведомлений и фильтрации задач.",
-    technologies: ["Vue.js", "JavaScript", "SCSS", "Vuex", "Vue Router", "Drag & Drop API"],
-    image: projectTaskManager,
-    githubUrl: "https://github.com/kryukaevk"
-  }
-]
+    id: "shawarma",
+    title: "Shawarma-app",
+    description: "Сайт для заказа еды с корзиной",
+    fullDescription:
+      "Shawarma App — это современное веб-приложение для заказа шавермы, разработанное как полнофункциональный фронтенд-проект. Пользователи могут просматривать каталог блюд (от классической до гавайской шавермы), фильтровать по категориям (Россия, Фри, Гавайи, В пите), выбирать вес, соус и добавки. Приложение включает детальные описания продуктов, изображения и индикатор популярности. Осуществлена навигация и корзина заказов (на базе Redux).",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Redux Toolkit",
+      "TailwindCSS",
+      "React Router",
+      "Local Storage",
+    ],
+    image: shawarmaApp,
+    githubUrl: "https://github.com/kryukaevk/shawarma-app",
+    liveUrl: "https://kryukaevk.github.io/shawarma-app/",
+  },
+];
 
 export function PortfolioSection() {
-  const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null)
-  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedProject, setSelectedProject] =
+    useState<PortfolioProject | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = (project: PortfolioProject) => {
-    setSelectedProject(project)
-    setModalOpen(true)
-  }
+    setSelectedProject(project);
+    setModalOpen(true);
+  };
 
   const closeModal = () => {
-    setModalOpen(false)
-    setSelectedProject(null)
-  }
+    setModalOpen(false);
+    setSelectedProject(null);
+  };
 
   return (
     <section id="portfolio" className="py-20 bg-background">
@@ -56,12 +78,12 @@ export function PortfolioSection() {
         <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-primary bg-clip-text text-transparent">
           Мои работы
         </h2>
-        
+
         <div className="max-w-6xl mx-auto">
           <p className="text-center text-muted-foreground mb-12 text-lg">
             Несколько проектов, над которыми я работал
           </p>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <Card
@@ -70,7 +92,7 @@ export function PortfolioSection() {
                 onClick={() => openModal(project)}
                 style={{
                   animationDelay: `${index * 0.2}s`,
-                  animation: "fade-in 0.6s ease-out forwards"
+                  animation: "fade-in 0.6s ease-out forwards",
                 }}
               >
                 <CardContent className="p-0">
@@ -82,7 +104,7 @@ export function PortfolioSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
                   </div>
-                  
+
                   <div className="p-6">
                     <h3 className="text-xl font-semibold mb-2 text-primary group-hover:text-burgundy-light transition-colors">
                       {project.title}
@@ -90,7 +112,7 @@ export function PortfolioSection() {
                     <p className="text-muted-foreground mb-4">
                       {project.description}
                     </p>
-                    
+
                     <div className="flex flex-wrap gap-1">
                       {project.technologies.slice(0, 3).map((tech) => (
                         <span
@@ -113,12 +135,12 @@ export function PortfolioSection() {
           </div>
         </div>
       </div>
-      
+
       <PortfolioModal
         project={selectedProject}
         isOpen={modalOpen}
         onClose={closeModal}
       />
     </section>
-  )
+  );
 }
